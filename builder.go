@@ -13,7 +13,6 @@ import (
 func BuildTftpServer(directory string, readonly bool) *tftp.Server {
 
 	var readHandler = func(filename string, rf io.ReaderFrom) error {
-		logger.Infof("RRQ: %s", filename)
 		start := time.Now()
 
 		filename = strings.TrimLeft(filename, "/")
