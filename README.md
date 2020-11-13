@@ -5,21 +5,21 @@ Its just a tftp server
 justatftpd is a simple tftp server that runs as a windows service.
 
 ## Usage  
-Example:  
+### Example:  
 `justatftpd.exe --dir ./ --ro=false --conns :69`
 
-Flags:  
+### Flags:  
 --dir   Path to directory you want to serve. Recommended to use unix style absolute paths. Default ./  
 --ro    When true, the tftp server runs in read only mode. Default false  
 --conns Connection string. Examples :69, 0.0.0.0:69, 192.168.1.1:69. Default: :69  
 
-Installing the service  
+### Installing the service  
 `justatftpd.exe --dir ./ --ro=true --conns :69 install`
 
-Uninstalling the service  
+### Uninstalling the service  
 `justatftpd.exe --dir ./ --ro=true --conns :69 uninstall`  
 
-Logging
+### Logging  
 justatftpd logs to windows event log when run as a service.  
 
 ## A note about PXE booting  
