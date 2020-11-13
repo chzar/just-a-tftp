@@ -21,18 +21,17 @@ func (p *program) Start(s service.Service) error {
 	go p.run()
 	return nil
 }
-func (p *program) run() {
 
-	pwd, _ := os.Getwd()
-	logger.Infof("Starting Server in %s...", pwd)
+func (p *program) run() {
+	logger.Info("Starting Server...")
 
 	err := BuildTftpServer(srvConfig.Directory, srvConfig.Readonly).ListenAndServe(srvConfig.ConnectionString) // blocks until s.Shutdown() is called
 	if err != nil {
 		logger.Errorf("Server: %v\n", err)
 	}
 }
+
 func (p *program) Stop(s service.Service) error {
-	// Stop should not block. Return with a few seconds.
 	return nil
 }
 
