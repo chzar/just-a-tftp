@@ -1,9 +1,5 @@
 # justatftpd
-Its just a tftp server
-
-## Introduction
-justatftpd is a simple tftp server that runs as a windows service.
-
+Just a tftp server that runs as a windows service.  
 ## Usage  
 ### Example:  
 `justatftpd.exe --dir ./ --ro=false --conns :69`
