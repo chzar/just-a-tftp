@@ -1,5 +1,9 @@
 # justatftpd
 Just a tftp server that runs as a windows service.  
+  
+Based on:  
+github.com/kardianos/service  
+github.com/pin/tftp  
 ## Usage  
 ### Example:  
 `justatftpd.exe --dir ./ --ro=false --conns :69`
