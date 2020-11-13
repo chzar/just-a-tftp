@@ -1,27 +1,25 @@
 package main
 
 import (
-	"encoding/json"
-	"io/ioutil"
-	"os"
+	"flag"
 )
 
 type config struct {
-	Directory        string `json:"directory"`
-	ConnectionString string `json:"connection_string"`
-	Readonly         bool   `json:"readonly"`
+	Directory        string
+	Readonly         bool
+	ConnectionString string
 }
 
-func LoadConfig() (*config, error) {
-	configFile, err := os.Open("./justatftpd.json")
-	if err != nil {
-		return nil, err
+func argparse() *config {
+	readonly := flag.Bool("ro", false, "runs the server in readonly mode")
+	directory := flag.String("dir", "./", "the directory to serve files from")
+	connectionString := flag.String("conns", ":69", "server connection string")
+	flag.Parse()
+
+	c := &config{
+		Directory:        *directory,
+		Readonly:         *readonly,
+		ConnectionString: *connectionString,
 	}
-	defer configFile.Close()
-
-	bytes, _ := ioutil.ReadAll(configFile)
-	var c config
-	json.Unmarshal(bytes, &c)
-
-	return &c, nil
+	return c
 }
