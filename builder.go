@@ -23,6 +23,7 @@ func BuildTftpServer(directory string, readonly bool) *tftp.Server {
 			logger.Infof("%v\n", err)
 			return err
 		}
+		defer file.Close()
 
 		n, err := rf.ReadFrom(file)
 		// this is a mitigation for some bootloaders that interrupt their file transfer immediately after requesting it
@@ -51,6 +52,8 @@ func BuildTftpServer(directory string, readonly bool) *tftp.Server {
 			logger.Infof("%v\n", err)
 			return err
 		}
+		defer file.Close()
+
 		n, err := wt.WriteTo(file)
 		if err != nil {
 			logger.Infof("%v\n", err)
