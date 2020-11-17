@@ -1,5 +1,5 @@
-# justatftpd
-Just a tftp server that runs as a windows service.  
+# just a tftp
+Just a simple tftp server that runs as a windows service.  
 
 I put this server together to replace the default tftp server bundled with Windows Deployment Service. It is suitable for serving PXE boot files on windows or as a general purpose tftp server.  
 
