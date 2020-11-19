@@ -38,9 +38,9 @@ func (p *program) Stop(s service.Service) error {
 func main() {
 	srvConfig = argparse()
 	svcConfig = &service.Config{
-		Name:             "justatftpd",
-		DisplayName:      "justatftpd",
-		Description:      "justatftpd",
+		Name:             "just-a-tftp",
+		DisplayName:      "just-a-tftp",
+		Description:      "just-a-tftp",
 		Arguments:        strings.Split(fmt.Sprintf("--ro=%s --dir=%s", strconv.FormatBool(srvConfig.Readonly), srvConfig.Directory), " "),
 		WorkingDirectory: srvConfig.Directory,
 		Executable:       os.Args[0],
